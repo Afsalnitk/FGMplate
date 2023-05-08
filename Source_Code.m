@@ -9,7 +9,7 @@ clear all
  LOAD=menu('LOAD TYPE : ','UDL','DOUBLE SINE VARIATION');
  if LOAD==1
     LoadType= [1,0];
- else
+  else
     LoadType= [0,1]; 
  end
  AspRatio=input('\na=1, Aspect Ratio (b/a) : ');
