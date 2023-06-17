@@ -3,7 +3,6 @@ clear all
 
 %---------------Point Deflection------------------------------------------------
  BCs=menu('Boundary Conditions : ','CCCC','SCSC','SSSC','SSSS','SFSC','SFSS','CFCF','SFSF');
- [b1,IW1_1,IW1_2,IW1_3,IW1_4,IW1_5,IW1_6,IW1_7,IW1_8,b2,LW2_1,b3,LW3_2,b4,LW4_3,b5,LW5_4] = Parameters(BCs);
 
  Em=input('\nEm : '); Ec=input('\nEc : '); 
  LOAD=menu('LOAD TYPE : ','UDL','DOUBLE SINE VARIATION');
@@ -15,7 +14,8 @@ clear all
  AspRatio=input('\na=1, Aspect Ratio (b/a) : ');
  ThickRatio=input('\nThickness Ratio : '); Pindex=input('\nPower low index : '); 
  x1=input('\n Point Position x : '); y1=input('\n Point Position y : '); 
-
+tic
+ [b1,IW1_1,IW1_2,IW1_3,IW1_4,IW1_5,IW1_6,IW1_7,IW1_8,b2,LW2_1,b3,LW3_2,b4,LW4_3,b5,LW5_4] = Parameters(BCs);
 X=[Ec/Em,LoadType,AspRatio,ThickRatio,Pindex,x1,y1]';
 X=num2cell(X);
 
@@ -33,3 +33,4 @@ X=num2cell(X);
     
     % Output 
     Deflection=a5
+toc
