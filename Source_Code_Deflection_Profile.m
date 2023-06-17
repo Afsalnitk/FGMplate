@@ -3,7 +3,6 @@ clear all
 
 %-------------Defection Profile----------------------------------------------------------- 
  BCs=menu('Boundary Conditions : ','CCCC','SCSC','SSSC','SSSS','SFSC','SFSS','CFCF','SFSF');
- [b1,IW1_1,IW1_2,IW1_3,IW1_4,IW1_5,IW1_6,IW1_7,IW1_8,b2,LW2_1,b3,LW3_2,b4,LW4_3,b5,LW5_4] = Parameters(BCs);
 
  Em=input('\nEm : '); Ec=input('\nEc : '); 
  LOAD=menu('LOAD TYPE : ','UDL','DOUBLE SINE VARIATION');
@@ -15,6 +14,8 @@ clear all
  AspRatio=input('\na=1, Aspect Ratio (b/a) : ');
  ThickRatio=input('\nThickness Ratio : '); Pindex=input('\nPower low index : '); 
 
+tic
+ [b1,IW1_1,IW1_2,IW1_3,IW1_4,IW1_5,IW1_6,IW1_7,IW1_8,b2,LW2_1,b3,LW3_2,b4,LW4_3,b5,LW5_4] = Parameters(BCs);
 ndivl=30;
 ndivw=30;
 a=1;    b=AspRatio;
@@ -47,6 +48,7 @@ X=num2cell(X);
     Deflection(count)=a5;
 end
 end
+toc
 Max_Deflections=max(abs(Deflection));
 
 surf(Xp,Yp,W)
